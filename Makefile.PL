@@ -9,4 +9,6 @@ use_ppport 3.20;
 cc_warnings;
 cc_src_paths 'src';
 
+author_tests 'xt';
+
 WriteAll;

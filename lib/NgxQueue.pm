@@ -60,7 +60,7 @@ For example,
 
 =item 2. When new connection was accepted, server create a connection object, and queue it into the connection queue.
 
-=item 3. When some errror occured, connection object can remove itself from server's connection queue without server object reference.
+=item 3. When some error occurred, connection object can remove itself from server's connection queue without server object reference.
 
 =back
 
@@ -224,7 +224,7 @@ Split single container to double containers.
 
 =head2 add
 
-Combile two containers into one.
+Combine two containers into one.
 
     my $q1 = NgxQueue->new;
     my $q2 = NgxQueue->new;
