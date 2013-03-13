@@ -42,6 +42,7 @@ sub insert_head {
     $queue->prev($self);
     $self->next($queue);
 }
+*insert_after = \&insert_head;
 
 sub insert_tail {
     my ($self, $queue) = @_;
