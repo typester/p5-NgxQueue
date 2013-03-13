@@ -80,8 +80,11 @@ OUTPUT:
 
 void
 insert_head(NgxQueue h, NgxQueue x)
+ALIAS:
+    insert_after = 1
 CODE:
 {
+    PERL_UNUSED_VAR(ix);
     ngx_queue_insert_head(&h->queue, &x->queue);
     PERL_UNUSED_VAR(SvREFCNT_inc(x->data));
 }
