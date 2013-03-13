@@ -16,3 +16,4 @@
 ^tools/
 ^\.travis\.yml$
 ^MYMETA\.(yml|json)$
+^ppport\.h$
