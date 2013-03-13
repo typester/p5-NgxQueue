@@ -5,6 +5,8 @@ use Test::LeakTrace;
 
 use NgxQueue;
 
+diag "Test for: " . NgxQueue::BACKEND;
+
 my $q = NgxQueue->new;
 ok $q->empty;
 

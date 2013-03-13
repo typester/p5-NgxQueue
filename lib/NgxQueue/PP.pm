@@ -102,3 +102,16 @@ sub foreach {
 }
 
 1;
+
+__END__
+
+=head1 NAME
+
+NgxQueue::PP - NgxQueue Pure-Perl backend
+
+=head1 SYNOPSIS
+
+See L<NgxQueue> documentation for detail.
+
+=cut
+

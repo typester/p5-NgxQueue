@@ -6,21 +6,23 @@ our $VERSION = '0.01';
 
 # load backend (XS or PP)
 my $use_xs = 0;
-if(!exists $INC{'NgxQueue/PP.pm'}) {
+if (!exists $INC{'NgxQueue/PP.pm'}) {
     my $pp = $ENV{PERL_ONLY};
-    if(!$pp) {
-        eval {
+    if (!$pp) {
+        eval qq{
             require XSLoader;
             XSLoader::load __PACKAGE__, $VERSION;
-            $use_xs = 1;
         };
     }
-    if(!__PACKAGE__->can('new')) {
+    if (__PACKAGE__->can('new')) {
+        $use_xs = 1;
+    }
+    else {
         require 'NgxQueue/PP.pm';
         push @NgxQueue::ISA, 'NgxQueue::PP';
     }
 }
-sub USE_XS() { $use_xs }
+sub BACKEND() { $use_xs ? 'XS' : 'PP' }
 
 1;
 
@@ -258,9 +260,17 @@ Combine two containers into one.
 
 foreach loop for the container. Each object represented as C<$_> in the loop block.
 
+=head1 FUNCTIONS
+
+=head2 NgxQueue::BACKEND()
+
+Return backend implementation: 'XS' or 'PP'
+
 =head1 AUTHOR
 
 Daisuke Murase <typester@cpan.org>
+
+Masayuki Matsuki <songmu@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

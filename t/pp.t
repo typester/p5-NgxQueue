@@ -8,7 +8,7 @@ BEGIN {
 }
 use NgxQueue;
 
-is NgxQueue::USE_XS(), 0;
+is NgxQueue::BACKEND, 'PP';
 new_ok 'NgxQueue';
 
 done_testing;
