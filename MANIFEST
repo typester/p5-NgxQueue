@@ -2,6 +2,7 @@ Changes
 cpanfile
 inc/Module/CPANfile.pm
 inc/Module/Install.pm
+inc/Module/Install/AuthorTests.pm
 inc/Module/Install/Base.pm
 inc/Module/Install/Can.pm
 inc/Module/Install/CPANfile.pm
@@ -23,3 +24,6 @@ src/queue.xs
 src/typemap
 t/basic.t
 t/sv_leak.t
+xt/pod.t
+xt/pod_coverage.t
+xt/pod_spell.t

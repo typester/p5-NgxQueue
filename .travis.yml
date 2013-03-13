@@ -2,5 +2,6 @@ language: "perl"
 before_install:
     - cpanm -n Module::Install::XSUtil
     - cpanm -n Module::Install::CPANfile
+    - cpanm -n Module::Install::AuthorTests
     - cpanm --installdeps .
 
