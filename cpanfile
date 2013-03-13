@@ -6,3 +6,7 @@ on "author" => sub {
     requires "Module::Install::AuthorTests";
 };
 
+on "test" => sub {
+    requires "Test::More" => "0.88";
+    requires "Test::LeakTrace" => "0.14";
+};
