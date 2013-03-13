@@ -14,19 +14,16 @@ sub new {
     $self;
 }
 
-sub DESTROY {
-    my $self = shift;
-    Scalar::Util::weaken($self->{next}) if $self->next && $self eq $self->next;
-    Scalar::Util::weaken($self->{prev}) if $self->prev && $self eq $self->prev;
-}
+sub data { shift->{data} }
 
-for my $accessor (qw/data next prev/) {
+for my $accessor (qw/next prev/) {
     no strict 'refs';
     *{__PACKAGE__."::$accessor"} = sub {
         use strict 'refs';
         my ($self, $arg) = @_;
         if ($arg) {
             $self->{$accessor} = $arg;
+            Scalar::Util::weaken($self->{$accessor}) if $self eq $arg;
         }
         $self->{$accessor};
     };
