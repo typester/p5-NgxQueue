@@ -1,7 +1,6 @@
 package NgxQueue;
 use strict;
 use warnings;
-use Carp;
 
 our $VERSION = '0.01';
 
