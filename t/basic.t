@@ -29,6 +29,18 @@ is $q->last->data, 'bar';
 $q->head->remove;
 ok $q->empty;
 
+
+# insert after
+$q->insert_after( NgxQueue->new('bar') );
+ok !$q->empty;
+
+is $q->head->data, 'bar';
+is $q->last->data, 'bar';
+
+$q->head->remove;
+ok $q->empty;
+
+
 # insert multi
 $q->insert_tail( NgxQueue->new('foo') );
 $q->insert_tail( NgxQueue->new('bar') );

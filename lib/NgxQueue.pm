@@ -1,11 +1,26 @@
 package NgxQueue;
 use strict;
 use warnings;
-use XSLoader;
 
 our $VERSION = '0.01';
 
-XSLoader::load __PACKAGE__, $VERSION;
+# load backend (XS or PP)
+my $use_xs = 0;
+if(!exists $INC{'NgxQueue/PP.pm'}) {
+    my $pp = $ENV{PERL_ONLY};
+    if(!$pp) {
+        eval {
+            require XSLoader;
+            XSLoader::load __PACKAGE__, $VERSION;
+            $use_xs = 1;
+        };
+    }
+    if(!__PACKAGE__->can('new')) {
+        require 'NgxQueue/PP.pm';
+        push @NgxQueue::ISA, 'NgxQueue::PP';
+    }
+}
+sub USE_XS() { $use_xs }
 
 1;
 
