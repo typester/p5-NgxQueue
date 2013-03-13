@@ -2,11 +2,3 @@ META.json
 META.yml
 MYMETA.json
 MYMETA.yml
-Makefile
-NgxQueue.bs
-blib/
-inc/
-pm_to_blib
-ppport.h
-src/queue.c
-src/queue.o
